@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Sale } from "../../models/sale";
+import { sale } from "../../models/sale";
 import { BASE_URL } from "../../utils/request";
 import NotificationButton from '../NotificationButton';
 import './styles.css';
@@ -14,7 +14,7 @@ function SalesCard() {
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
 
-    const [Sales, setSales] = useState<Sale[]>([]);
+    const [Sales, setSales] = useState<sale[]>([]);
 
     useEffect(() => {
 
@@ -62,18 +62,18 @@ function SalesCard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {Sales.map(Sale => {
+                        {Sales.map(sale => {
                             return (
-                                <tr key={Sale.id}>
-                                    <td className="show992">{Sale.id}</td>
-                                    <td className="show576">{new Date(Sale.date).toLocaleDateString()}</td>
-                                    <td>{Sale.sellerName}</td>
-                                    <td className="show992">{Sale.visited}</td>
-                                    <td className="show992">{Sale.deals}</td>
-                                    <td>R$ {Sale.amount.toFixed(2)}</td>
+                                <tr key={sale.id}>
+                                    <td className="show992">{sale.id}</td>
+                                    <td className="show576">{new Date(sale.date).toLocaleDateString()}</td>
+                                    <td>{sale.sellerName}</td>
+                                    <td className="show992">{sale.visited}</td>
+                                    <td className="show992">{sale.deals}</td>
+                                    <td>R$ {sale.amount.toFixed(2)}</td>
                                     <td>
                                         <div className="dsmeta-red-btn-container">
-                                            <NotificationButton saleId={Sale.id}/>
+                                            <NotificationButton saleId={sale.id}/>
                                         </div>
                                     </td>
                                 </tr>

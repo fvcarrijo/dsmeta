@@ -1,4 +1,4 @@
-export type Sale = {
+export type sale = {
     id: number; 
     sellerName: string;
     date: string; 
